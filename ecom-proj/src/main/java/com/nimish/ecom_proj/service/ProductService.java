@@ -14,12 +14,14 @@ public class ProductService
     @Autowired
     ProductRepo repo;
 
-
-    @Transactional
     public List<Product> getAllProducts() {
         List<Product> products = repo.findAll();
         System.out.println("Products retrieved: " + products);
         return products;
     }
 
+    public Product getProductById(int id)
+    {
+        return repo.findById(id).orElse(null);
+    }
 }

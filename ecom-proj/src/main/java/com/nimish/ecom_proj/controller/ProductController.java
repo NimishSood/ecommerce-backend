@@ -3,10 +3,9 @@ package com.nimish.ecom_proj.controller;
 import com.nimish.ecom_proj.model.Product;
 import com.nimish.ecom_proj.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,26 +17,24 @@ public class ProductController
     @Autowired
     private  ProductService service;
 
-    @RequestMapping("/greet")
-    public String greet()
-    {
-        return "Hello World!";
-    }
 
     @GetMapping("/products")
-    public List<Product> getAllProducts() {
-        return service.getAllProducts();
+    public ResponseEntity <List<Product>> getAllProducts() {
+        return new ResponseEntity<>(service.getAllProducts(), HttpStatus.OK);
     }
 
-
-    @GetMapping("/products/test")
-    public Product getTestProduct() {
-        List<Product> products = service.getAllProducts();
-        if (!products.isEmpty()) {
-            System.out.println("First Product: " + products.get(0));
-            return products.get(0);
+    @GetMapping("/product/{id}")
+    public ResponseEntity<Product> getProduct(@PathVariable int id)
+    {
+        Product product = service.getProductById(id);
+        if ( product !=null)
+        {
+            return new ResponseEntity<>(product,HttpStatus.OK);
         }
-        return null; // Return null if the list is empty
+        else
+        {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 }

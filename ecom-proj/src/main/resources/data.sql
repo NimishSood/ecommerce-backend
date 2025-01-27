@@ -1,5 +1,21 @@
 INSERT INTO product (name, price, description, brand, category, available, quantity, release_Date)
 VALUES
-    ('Laptop', 1200.00, 'High-performance laptop with 16GB RAM and 512GB SSD', 'Dell', 'Electronics', true, 10, '2024-01-15'),
-    ('Smartphone', 800.00, 'Latest 5G smartphone with AMOLED display', 'Samsung', 'Mobile', true, 25, '2024-01-16'),
-    ('Headphones', 150.00, 'Noise-canceling over-ear headphones', 'Sony', 'Accessories', true, 15, '2024-01-17');
+    ('Gaming Console', 500.00, 'Next-gen console with 4K support and 1TB storage', 'PlayStation', 'Gaming', true, 20, '2024-02-01'),
+    ('Smartwatch', 250.00, 'Fitness-focused smartwatch with heart rate and GPS', 'Apple', 'Wearables', true, 30, '2024-02-05'),
+    ('Tablet', 400.00, '10-inch tablet with stylus support and 128GB storage', 'Lenovo', 'Tablets', true, 12, '2024-02-10'),
+    ('Bluetooth Speaker', 80.00, 'Portable waterproof speaker with deep bass', 'JBL', 'Audio', true, 40, '2024-02-12'),
+    ('4K Smart TV', 1000.00, 'Ultra HD Smart TV with HDR and 120Hz refresh rate', 'LG', 'Electronics', true, 8, '2024-03-01'),
+    ('Wireless Earbuds', 120.00, 'True wireless earbuds with active noise cancellation', 'Bose', 'Audio', true, 25, '2024-03-10'),
+    ('Electric Kettle', 60.00, '1.7L electric kettle with temperature control', 'Philips', 'Home Appliances', true, 18, '2024-03-15'),
+    ('Fitness Tracker', 70.00, 'Compact tracker with step count, sleep monitor, and app sync', 'Fitbit', 'Wearables', true, 35, '2024-03-20'),
+    ('Coffee Maker', 200.00, 'Premium coffee maker with programmable settings', 'Nespresso', 'Home Appliances', true, 10, '2024-03-25'),
+    ('Gaming Mouse', 70.00, 'Ergonomic gaming mouse with RGB and 16000 DPI sensor', 'Logitech', 'Accessories', true, 22, '2024-04-01'),
+    ('DSLR Camera', 1200.00, '24MP DSLR camera with Wi-Fi and 4K recording', 'Canon', 'Photography', true, 6, '2024-04-10'),
+    ('Electric Scooter', 800.00, 'Foldable electric scooter with 25km range', 'Xiaomi', 'Vehicles', true, 10, '2024-04-15'),
+    ('Gaming Chair', 300.00, 'Ergonomic gaming chair with lumbar support', 'Secretlab', 'Furniture', true, 14, '2024-05-01'),
+    ('VR Headset', 450.00, 'Immersive VR headset with motion controllers', 'Meta', 'Gaming', true, 12, '2024-05-10'),
+    ('Drone', 1000.00, '4K drone with 30-min flight time and GPS', 'DJI', 'Photography', true, 8, '2024-05-15'),
+    ('Air Purifier', 150.00, 'HEPA filter air purifier for rooms up to 300 sq. ft.', 'Dyson', 'Home Appliances', true, 20, '2024-05-20'),
+    ('Robot Vacuum', 500.00, 'Smart vacuum cleaner with app control and scheduling', 'iRobot', 'Home Appliances', true, 10, '2024-06-01'),
+    ('Portable Charger', 40.00, '20,000mAh power bank with fast charging', 'Anker', 'Accessories', true, 50, '2024-06-05'),
+    ('Smart Light Bulbs', 100.00, 'Pack of 4 color-changing smart bulbs with app control', 'Philips Hue', 'Home Automation', true, 30, '2024-09-19');
