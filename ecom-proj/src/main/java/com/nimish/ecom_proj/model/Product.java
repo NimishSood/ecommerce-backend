@@ -1,6 +1,5 @@
 package com.nimish.ecom_proj.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,8 +19,8 @@ public class Product
     private String description;
     private String brand;
     private String category;
-    private boolean available;
-    private int quantity;
+    private boolean productAvailable;
+    private int stockQuantity;
     private Date releaseDate;
 
     //For images
@@ -85,21 +84,6 @@ public class Product
         this.category = category;
     }
 
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
     public Date getReleaseDate() {
         return releaseDate;
@@ -131,5 +115,21 @@ public class Product
 
     public void setImageData(byte[] imageData) {
         this.imageData = imageData;
+    }
+
+    public boolean isProductAvailable() {
+        return productAvailable;
+    }
+
+    public void setProductAvailable(boolean productAvailable) {
+        this.productAvailable = productAvailable;
+    }
+
+    public int getStockQuantity() {
+        return stockQuantity;
+    }
+
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
 }

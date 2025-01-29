@@ -4,6 +4,7 @@ import com.nimish.ecom_proj.model.Product;
 import com.nimish.ecom_proj.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,6 +52,17 @@ public class ProductController
             return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+    }
+
+    @GetMapping ("/product/{id}/image")
+    public ResponseEntity<byte[]> getImageByProductId(@PathVariable int id)
+    {
+        Product product = service.getProductById(id);
+        byte[] imageData = product.getImageData();
+
+        return   ResponseEntity.ok()
+                .contentType(MediaType.valueOf(product.getImageType()))
+                .body(imageData);
     }
 
 }
