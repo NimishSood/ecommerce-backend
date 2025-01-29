@@ -55,7 +55,7 @@ public class ProductController
     }
 
     @GetMapping ("/product/{id}/image")
-    public ResponseEntity<byte[]> getImageByProductId(@PathVariable int id)
+    public ResponseEntity<byte[]> UpdateProduct(@PathVariable int id)
     {
         Product product = service.getProductById(id);
         byte[] imageData = product.getImageData();
@@ -63,6 +63,44 @@ public class ProductController
         return   ResponseEntity.ok()
                 .contentType(MediaType.valueOf(product.getImageType()))
                 .body(imageData);
+    }
+
+    // For updating the Product
+    @PutMapping ("/product/{id}")
+    public ResponseEntity<String> updateProduct(@PathVariable int id,@RequestPart Product product,@RequestPart MultipartFile imageFile)
+    {
+        Product product1= null;
+        try
+        {
+            product1 = service.updateProduct(id,product,imageFile);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        if (product1!=null)
+        {
+            return new ResponseEntity<>("Updated",HttpStatus.OK);
+        }
+        else
+        {
+            return new ResponseEntity<>("Failed to update",HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping ("/product/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable int id)
+    {
+        Product product = service.getProductById(id);
+        if (product!=null)
+        {
+            service.deleteProduct(id);
+            return new ResponseEntity<>("Product Deleted Successfully",HttpStatus.OK);
+        }
+        else
+        {
+            return new ResponseEntity<>("Product Not Found",HttpStatus.NOT_FOUND);
+        }
     }
 
 }
